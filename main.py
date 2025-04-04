@@ -1,21 +1,17 @@
-my_dict = {
-    'image_id': 5136,
-    'image_title': 'my cat'
-}
-
-
-def image_info(image):
-    if 'image_id' not in image:
-        raise NameError('the dict is not have image\'s id')
-    if 'image_title' not in image:
-        raise KeyError('the dict is not have image\'s title')
+def route_info(one_dict):
+    if one_dict.get('distance') and isinstance(one_dict['distance'], int):
+        # if type(one_dict['distance']) == int:
+        return f"Distance to your destination is {one_dict['distance']}"
+    elif one_dict.get('speed') and one_dict.get('time'):
+        return f"Distance to your destination is {one_dict['speed']*one_dict['time']}"
     else:
-        return print(f"Image '{image['image_title']}' has id {image['image_id']}")
+        return f"No distance info is available"
 
 
-try:
-    image_info(my_dict)
-except NameError as e:
-    print(e)
-except KeyError as e:
-    print(e)
+'''Если в словаре нет ключа 'distance', 
+то one_dict['distance'] вызовет KeyError, 
+и функция упадёт, не дойдя до elif и else.'''
+
+print(route_info({'distance': 200, 'speed': 30, 'time': 2}))
+print(route_info({'route': 'dangerous'}))
+print(route_info({'speed': 80, 'time': 2}))
