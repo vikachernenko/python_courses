@@ -1,15 +1,21 @@
 my_dict = {
-    'a': 1,
-    'b': 2,
-    'c': 3,
-}
-your_dict = {
-    'a': 1,
-    'b': 2,
-    'c': 3
+    'image_id': 5136,
+    'image_title': 'my cat'
 }
 
-my_dict == your_dict and print("the dictionaries are equal")
 
-my_dict is your_dict and print(
-    "the dictionaries are equal in the memory of computer")
+def image_info(image):
+    if 'image_id' not in image:
+        raise NameError('the dict is not have image\'s id')
+    if 'image_title' not in image:
+        raise KeyError('the dict is not have image\'s title')
+    else:
+        return print(f"Image '{image['image_title']}' has id {image['image_id']}")
+
+
+try:
+    image_info(my_dict)
+except NameError as e:
+    print(e)
+except KeyError as e:
+    print(e)
