@@ -1,0 +1,92 @@
+/* Основные стили для контейнера резюме */
+body {
+    margin: 0;
+    font-family: var(--bs-font-sans-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #5C4033; /* Тёмно-коричневый цвет текста (основной) */
+    background-color: #F5F5DC; /* Бежевый фон страницы */
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.resume-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #E6D7B8; /* Светло-бежевый фон резюме */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для заголовка резюме */
+.resume-title {
+    text-align: center;
+    color: #8B5A2B; /* Тёплый коричневый для заглавного текста */
+    margin-bottom: 20px;
+    font-size: 2.5em; /* Большой размер шрифта */
+    text-transform: uppercase; /* Все буквы заглавные */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Стили для каждого окошка с информацией */
+.info-window {
+    background-color: #F0E4C9; /* Очень светлый бежевый фон окошек */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Заголовки второго уровня */
+.info-window h2 {
+    color: #8B5A2B; /* Тёплый коричневый для заголовков */
+    margin-bottom: 10px;
+    font-size: 2em; /* Размер шрифта */
+    text-transform: uppercase; /* Все буквы заглавные */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Заголовки третьего уровня */
+.info-window h3 {
+    color: #8B5A2B; /* Тёплый коричневый для подзаголовков */
+    margin-bottom: 10px;
+    font-size: 1.5em; /* Размер шрифта */
+    text-transform: uppercase; /* Все буквы заглавные */
+    font-weight: bold; /* Жирный шрифт */
+}
+
+/* Основной текст */
+.info-window p, .info-window li {
+    color: #6F4E37; /* Средний коричневый для текста */
+    line-height: 1.6;
+    font-size: 1.1em; /* Размер шрифта */
+}
+
+/* Ссылки */
+.info-window a {
+    color: #A67B5B; /* Светло-коричневый для ссылок */
+    text-decoration: none;
+}
+
+.info-window a:hover {
+    color: #8B5A2B; /* Более тёмный коричневый при наведении */
+    text-decoration: underline;
+}
+
+/* Списки */
+.info-window ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.info-window li {
+    margin-bottom: 10px;
+}
+
+/* Жирный текст */
+.info-window strong {
+    font-size: 1.2em; /* Увеличиваем размер шрифта */
+    color: #5C4033; /* Тёмно-коричневый для жирного текста */
+}

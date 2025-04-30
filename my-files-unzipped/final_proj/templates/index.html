@@ -1,0 +1,26 @@
+<link href="style/style.css" rel="stylesheet">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub</title>
+</head>
+<body>
+    <h1>GitHub</h1>
+    <p>Имя пользователя: {{ info_about_user.name}}</p>
+    <p>Логин: {{ info_about_user.login }}</p>
+    <p>Email: {{ info_about_user.email }}</p>
+    <p>Био: {{ info_about_user.bio }}</p>
+    <p>Локация: {{ info_about_user.location }}</p>
+    <p>URL репозиториев: {{ info_about_user.repos_url }}</p>
+    
+    <h2>Репозитории:</h2>
+    <ul>
+    {% for repo in all_repositories %}
+        <li><a href="{{ repo.url }}">{{ repo.name }}</a></li>
+    {% endfor %}
+    </ul>
+    
+    <p>Дата генерации: {{ datetime }}</p>
+</body>
+</html>
