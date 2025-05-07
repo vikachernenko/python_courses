@@ -1,17 +1,16 @@
-def route_info(one_dict):
-    if one_dict.get('distance') and isinstance(one_dict['distance'], int):
-        # if type(one_dict['distance']) == int:
-        return f"Distance to your destination is {one_dict['distance']}"
-    elif one_dict.get('speed') and one_dict.get('time'):
-        return f"Distance to your destination is {one_dict['speed']*one_dict['time']}"
-    else:
-        return f"No distance info is available"
+import csv
 
+""" with open('test.csv', 'w') as csv_file:
+    writer = csv.writer(csv_file)
+    writer.writerow(['user_id', 'user_id', 'comments_qty'])
+    writer.writerow([2311, 'vika', '2136'])
+    writer.writerow([2221, 'bogdan', '2434'])
+    writer.writerow([2211, 'vfv', '2834'])
+ """
 
-'''Если в словаре нет ключа 'distance', 
-то one_dict['distance'] вызовет KeyError, 
-и функция упадёт, не дойдя до elif и else.'''
-
-print(route_info({'distance': 200, 'speed': 30, 'time': 2}))
-print(route_info({'route': 'dangerous'}))
-print(route_info({'speed': 80, 'time': 2}))
+with open('test.csv') as csv_file:
+    reader = csv.reader(csv_file)
+    print(reader)
+    print(type(reader))
+    for line in reader:
+        print(line)
