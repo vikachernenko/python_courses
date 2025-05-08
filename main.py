@@ -1,16 +1,18 @@
-import csv
+# import random
 
-""" with open('test.csv', 'w') as csv_file:
-    writer = csv.writer(csv_file)
-    writer.writerow(['user_id', 'user_id', 'comments_qty'])
-    writer.writerow([2311, 'vika', '2136'])
-    writer.writerow([2221, 'bogdan', '2434'])
-    writer.writerow([2211, 'vfv', '2834'])
- """
+# print(random.choice('sdqefqwfeqf'))
+# print(random.choices('sdqefqwfeqf', k=3))
 
-with open('test.csv') as csv_file:
-    reader = csv.reader(csv_file)
-    print(reader)
-    print(type(reader))
-    for line in reader:
-        print(line)
+# my_list = [231, 32, 323, 33, 32, 3]
+# print(random.shuffle(my_list))
+# print(my_list)
+
+# print(''.join(random.choices('0123456789zxcvbnmasdfghjklqwertyuiop', k=8)))
+
+
+import secrets
+import string
+
+all_chars = string.ascii_letters+string.digits+string.punctuation
+
+print(''.join(secrets.choice(all_chars) for i in range(20)))
