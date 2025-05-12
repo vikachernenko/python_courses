@@ -1,32 +1,20 @@
-import string
-import re
+# docker run --rm -it -p 3000:80 -p 2525:25 rnwood/smtp4dev
+from email.message import EmailMessage  # пакет email модуль message
+import smtplib  # модуль
+# с помощью smtplib мы будет отправлять имэйл сконструированный классом EmailMessage
 
+my_email = EmailMessage()  # новый экземпляр класса
+# с помощью EmailMessage мы будем конструировать имэйл
 
-def check_password(password):
-    # проверяем что в строке минимум 8 символов, знаки tab и переходы на новую строку не считаются -  \S
-    len_pattern = re.compile(r'\S{8,}')
-    lowercase_pattern = re.compile(r'^.*[a-z]+.*$')
-    uppercase_pattern = re.compile(r'^.*[A-Z]+.*$')
-    digits_pattern = re.compile(r'^.[0-9]+.*$')
-    punctuation_pattern = re.compile(r'^.*[!@#$%^&*]+.*$')
+my_email['from'] = 'Vika'
+my_email['to'] = 'test@gmail.com'
+my_email['subject'] = 'Hello from Python'
+my_email.set_content('Hey! How are you doing?')
 
-    if not re.fullmatch(len_pattern, password):
-        return (False, 'password is too short')
-    if not re.fullmatch(lowercase_pattern, password):
-        return (False, 'password must have at least one lowercase letter')
-    if not re.fullmatch(uppercase_pattern, password):
-        return (False, 'password must have at least one uppercase letter')
-    if not re.fullmatch(digits_pattern, password):
-        return (False, 'password must have at least one digit')
-    if not re.fullmatch(punctuation_pattern, password):
-        return (False, 'password must have at least one puncuation symbol !@#$%^&*')
-    return (True, 'Success :) ')
-
-
-while True:
-    password = input('enter the password')
-    information_res = check_password(password)
-    if information_res[0]:
-        print(information_res[1])
-        break
-    print(information_res[1])
+# порт указываем тот на котором у нас открыт докер
+with smtplib.SMTP(host='localhost', port=2525) as smtp_server:
+    smtp_server.ehlo()  # ehlo - метод который устранавливает связь с smtp сервером
+    # smtp_server.starttls()  # передача данных в зашифрованном виде
+    # smtp_server.login('username', 'password')  # для авторизации
+    smtp_server.send_message(my_email)
+    print('email was sent!')
